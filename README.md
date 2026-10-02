@@ -51,6 +51,8 @@ API поддерживает стандартные CRUD-операции:
 
 ```http
 GET /api/objects
+```
+
 ## Структура проекта
 
 ```text
@@ -63,12 +65,10 @@ uni-devops/
 │   ├── README.md
 │   └── ...
 │  
-├──  lab2/ 
+├── lab2/
 │
 └── ...
-
-```text
-
+```
 
 ## Правила внесения изменений
 
@@ -82,3 +82,4 @@ uni-devops/
 git switch main
 git pull origin main
 git switch -c feature/название-задачи
+```
