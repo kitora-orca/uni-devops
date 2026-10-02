@@ -1,6 +1,2 @@
-\## Documentation
-
-
-
-\- \[Database documentation](docs/DATABASE.md)
+\# Uni DevOps Project - Branch B
 
