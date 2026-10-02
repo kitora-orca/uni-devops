@@ -52,8 +52,7 @@ API поддерживает стандартные CRUD-операции:
 ```http
 GET /api/objects
 ## Структура проекта
-
-```text
+```http
 
 uni-devops/
 │
@@ -68,5 +67,5 @@ uni-devops/
 │
 └── ...
 
-
+```text
 
