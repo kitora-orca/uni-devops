@@ -49,11 +49,12 @@ API поддерживает стандартные CRUD-операции:
 
 Пример:
 
-http
+```http
 GET /api/objects
 ## Структура проекта
 
-text
+```text
+
 uni-devops/
 │
 ├── lab1/
