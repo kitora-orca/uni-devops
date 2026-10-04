@@ -1,6 +1,4 @@
 # Uni DevOps Project
-=======
-# Uni DevOps Project
 
 Учебный проект по DevOps, разработке и работе с базой данных PostgreSQL.
 
