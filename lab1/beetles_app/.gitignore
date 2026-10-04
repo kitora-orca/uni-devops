@@ -1,0 +1,4 @@
+# Environment variables / secrets
+.env
+venv
+__pycache__
