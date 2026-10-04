@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Uni DevOps Project
 =======
 # Uni DevOps Project
