@@ -1,0 +1,35 @@
+коммитить весь реп:
+cd "$HOME\Desktop\uni-devops"
+git pull origin main
+
+git status
+git add -A
+git commit -m "Update project"
+git push origin main
+
+
+коммитить отдельную ветвь:
+cd "C:\Users\Admin\Desktop\uni-devops"
+git pull origin main
+git status
+git add lab1/
+git status
+git commit -m "Update lab1"
+git pгsh origin main
+
+
+запуск веб приложения:
+
+postgre sql 17 должен быть установлен и с загруженными данными.
+
+в терминале vsc входим в корень нашей папки с файлами. (в моем случае PS C:\Users\Admin\Desktop\code\beetles_app>)
+
+если прежде не запускали приложение, то нужно установить зависимости, это две отдельные команды для консоли в vsc
+(
+python -m pip install -r requirements.txt
+python -m pip install itsdangerous
+)
+
+для запуска сервера вставить в терминал uvicorn main:app --reload
+
+для входа в приложение открываем в браузере http://127.0.0.1:8000

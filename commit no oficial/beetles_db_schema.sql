@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict wKGzByBrPgpdTtvcesj7EaLoBYyPBrye4hECosrpVQx3Qk4UzbWSCO6xXbkzU1L
+\restrict mpOGH2d3X98cretqJjcMG9hCEMLFthZcN04uNubOpxc3rcWguxJs0LdHzY9yDDg
 
 -- Dumped from database version 17.11
 -- Dumped by pg_dump version 17.11
@@ -24,7 +24,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- Name: beetle_species; Type: TABLE; Schema: public; Owner: -
+-- Name: beetle_species; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.beetle_species (
@@ -33,8 +33,10 @@ CREATE TABLE public.beetle_species (
 );
 
 
+ALTER TABLE public.beetle_species OWNER TO postgres;
+
 --
--- Name: beetle_species_species_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: beetle_species_species_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.beetle_species_species_id_seq
@@ -45,15 +47,17 @@ CREATE SEQUENCE public.beetle_species_species_id_seq
     CACHE 1;
 
 
+ALTER SEQUENCE public.beetle_species_species_id_seq OWNER TO postgres;
+
 --
--- Name: beetle_species_species_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: beetle_species_species_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.beetle_species_species_id_seq OWNED BY public.beetle_species.species_id;
 
 
 --
--- Name: catch; Type: TABLE; Schema: public; Owner: -
+-- Name: catch; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.catch (
@@ -65,8 +69,10 @@ CREATE TABLE public.catch (
 );
 
 
+ALTER TABLE public.catch OWNER TO postgres;
+
 --
--- Name: catch_catch_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: catch_catch_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.catch_catch_id_seq
@@ -77,15 +83,17 @@ CREATE SEQUENCE public.catch_catch_id_seq
     CACHE 1;
 
 
+ALTER SEQUENCE public.catch_catch_id_seq OWNER TO postgres;
+
 --
--- Name: catch_catch_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: catch_catch_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.catch_catch_id_seq OWNED BY public.catch.catch_id;
 
 
 --
--- Name: expeditions; Type: TABLE; Schema: public; Owner: -
+-- Name: expeditions; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.expeditions (
@@ -98,8 +106,10 @@ CREATE TABLE public.expeditions (
 );
 
 
+ALTER TABLE public.expeditions OWNER TO postgres;
+
 --
--- Name: expeditions_expedition_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: expeditions_expedition_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.expeditions_expedition_id_seq
@@ -110,15 +120,17 @@ CREATE SEQUENCE public.expeditions_expedition_id_seq
     CACHE 1;
 
 
+ALTER SEQUENCE public.expeditions_expedition_id_seq OWNER TO postgres;
+
 --
--- Name: expeditions_expedition_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: expeditions_expedition_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.expeditions_expedition_id_seq OWNED BY public.expeditions.expedition_id;
 
 
 --
--- Name: places; Type: TABLE; Schema: public; Owner: -
+-- Name: places; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.places (
@@ -127,8 +139,10 @@ CREATE TABLE public.places (
 );
 
 
+ALTER TABLE public.places OWNER TO postgres;
+
 --
--- Name: places_place_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: places_place_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.places_place_id_seq
@@ -139,15 +153,17 @@ CREATE SEQUENCE public.places_place_id_seq
     CACHE 1;
 
 
+ALTER SEQUENCE public.places_place_id_seq OWNER TO postgres;
+
 --
--- Name: places_place_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: places_place_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.places_place_id_seq OWNED BY public.places.place_id;
 
 
 --
--- Name: teams; Type: TABLE; Schema: public; Owner: -
+-- Name: teams; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.teams (
@@ -156,8 +172,10 @@ CREATE TABLE public.teams (
 );
 
 
+ALTER TABLE public.teams OWNER TO postgres;
+
 --
--- Name: teams_team_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: teams_team_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.teams_team_id_seq
@@ -168,50 +186,94 @@ CREATE SEQUENCE public.teams_team_id_seq
     CACHE 1;
 
 
+ALTER SEQUENCE public.teams_team_id_seq OWNER TO postgres;
+
 --
--- Name: teams_team_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: teams_team_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.teams_team_id_seq OWNED BY public.teams.team_id;
 
 
 --
--- Name: beetle_species species_id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: users; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.users (
+    user_id bigint NOT NULL,
+    username character varying(100) NOT NULL,
+    password_hash text NOT NULL,
+    created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+);
+
+
+ALTER TABLE public.users OWNER TO postgres;
+
+--
+-- Name: users_user_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.users_user_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.users_user_id_seq OWNER TO postgres;
+
+--
+-- Name: users_user_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.users_user_id_seq OWNED BY public.users.user_id;
+
+
+--
+-- Name: beetle_species species_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.beetle_species ALTER COLUMN species_id SET DEFAULT nextval('public.beetle_species_species_id_seq'::regclass);
 
 
 --
--- Name: catch catch_id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: catch catch_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.catch ALTER COLUMN catch_id SET DEFAULT nextval('public.catch_catch_id_seq'::regclass);
 
 
 --
--- Name: expeditions expedition_id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: expeditions expedition_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.expeditions ALTER COLUMN expedition_id SET DEFAULT nextval('public.expeditions_expedition_id_seq'::regclass);
 
 
 --
--- Name: places place_id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: places place_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.places ALTER COLUMN place_id SET DEFAULT nextval('public.places_place_id_seq'::regclass);
 
 
 --
--- Name: teams team_id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: teams team_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.teams ALTER COLUMN team_id SET DEFAULT nextval('public.teams_team_id_seq'::regclass);
 
 
 --
--- Name: beetle_species beetle_species_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: users user_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.users ALTER COLUMN user_id SET DEFAULT nextval('public.users_user_id_seq'::regclass);
+
+
+--
+-- Name: beetle_species beetle_species_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.beetle_species
@@ -219,7 +281,7 @@ ALTER TABLE ONLY public.beetle_species
 
 
 --
--- Name: beetle_species beetle_species_species_name_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: beetle_species beetle_species_species_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.beetle_species
@@ -227,7 +289,7 @@ ALTER TABLE ONLY public.beetle_species
 
 
 --
--- Name: catch catch_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: catch catch_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.catch
@@ -235,7 +297,7 @@ ALTER TABLE ONLY public.catch
 
 
 --
--- Name: expeditions expeditions_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: expeditions expeditions_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.expeditions
@@ -243,7 +305,7 @@ ALTER TABLE ONLY public.expeditions
 
 
 --
--- Name: places places_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: places places_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.places
@@ -251,7 +313,7 @@ ALTER TABLE ONLY public.places
 
 
 --
--- Name: places places_place_name_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: places places_place_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.places
@@ -259,7 +321,7 @@ ALTER TABLE ONLY public.places
 
 
 --
--- Name: teams teams_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: teams teams_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.teams
@@ -267,7 +329,7 @@ ALTER TABLE ONLY public.teams
 
 
 --
--- Name: teams teams_team_name_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: teams teams_team_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.teams
@@ -275,7 +337,7 @@ ALTER TABLE ONLY public.teams
 
 
 --
--- Name: catch unique_expedition_species; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: catch unique_expedition_species; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.catch
@@ -283,7 +345,23 @@ ALTER TABLE ONLY public.catch
 
 
 --
--- Name: catch fk_catch_expedition; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.users
+    ADD CONSTRAINT users_pkey PRIMARY KEY (user_id);
+
+
+--
+-- Name: users users_username_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.users
+    ADD CONSTRAINT users_username_key UNIQUE (username);
+
+
+--
+-- Name: catch fk_catch_expedition; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.catch
@@ -291,7 +369,7 @@ ALTER TABLE ONLY public.catch
 
 
 --
--- Name: catch fk_catch_species; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: catch fk_catch_species; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.catch
@@ -299,7 +377,7 @@ ALTER TABLE ONLY public.catch
 
 
 --
--- Name: expeditions fk_expedition_place; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: expeditions fk_expedition_place; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.expeditions
@@ -307,7 +385,7 @@ ALTER TABLE ONLY public.expeditions
 
 
 --
--- Name: expeditions fk_expedition_team; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: expeditions fk_expedition_team; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.expeditions
@@ -318,5 +396,5 @@ ALTER TABLE ONLY public.expeditions
 -- PostgreSQL database dump complete
 --
 
-\unrestrict wKGzByBrPgpdTtvcesj7EaLoBYyPBrye4hECosrpVQx3Qk4UzbWSCO6xXbkzU1L
+\unrestrict mpOGH2d3X98cretqJjcMG9hCEMLFthZcN04uNubOpxc3rcWguxJs0LdHzY9yDDg
 

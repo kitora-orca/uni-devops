@@ -562,3 +562,21 @@ async function loadCatchReport() {
 }
 
 loadAll();
+
+// ======================================
+// Выход из системы
+// ======================================
+
+document
+    .getElementById("logout-button")
+    .addEventListener("click", async function() {
+
+        const response = await fetch("/api/logout", {
+            method: "POST"
+        });
+
+        if (response.ok) {
+            window.location.href = "/auth";
+        }
+
+    });

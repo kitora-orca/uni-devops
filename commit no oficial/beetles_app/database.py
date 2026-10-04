@@ -1,11 +1,18 @@
+import os
+
 import psycopg2
+from dotenv import load_dotenv
+
+
+load_dotenv()
+
 
 DB_CONFIG = {
-    "host": "localhost",
-    "port": 5432,
-    "database": "beetles_db",
-    "user": "postgres",
-    "password": "123"
+    "host": os.getenv("DB_HOST", "localhost"),
+    "port": os.getenv("DB_PORT", "5432"),
+    "database": os.getenv("DB_NAME", "beetles_db"),
+    "user": os.getenv("DB_USER", "postgres"),
+    "password": os.getenv("DB_PASSWORD"),
 }
 
 
