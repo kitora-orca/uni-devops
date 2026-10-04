@@ -83,4 +83,3 @@ git switch main
 git pull origin main
 git switch -c feature/название-задачи
 ```
->>>>>>> 0a0d8124c7a36a1ef7486995938a3437b93f1025
