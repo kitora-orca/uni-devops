@@ -15,7 +15,7 @@ git status
 git add lab1/
 git status
 git commit -m "Update lab1"
-git pгsh origin main
+git push origin main
 
 
 запуск веб приложения:
