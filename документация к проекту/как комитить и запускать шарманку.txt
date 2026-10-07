@@ -1,3 +1,5 @@
+git clone https://github.com/kitora-orca/uni-devops/tree/main
+
 коммитить весь реп:
 cd "$HOME\Desktop\uni-devops"
 git pull origin main
