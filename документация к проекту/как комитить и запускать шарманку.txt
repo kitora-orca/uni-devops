@@ -1,4 +1,6 @@
 git clone https://github.com/kitora-orca/uni-devops.git
+git fetch
+git status
 
 коммитить весь реп:
 cd "$HOME\Desktop\uni-devops"
