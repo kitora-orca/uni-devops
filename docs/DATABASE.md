@@ -34,7 +34,7 @@
 
 
 
-`docs/schema.sql`
+`docs/beetles_db_schema.sql`
 
 
 
