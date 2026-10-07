@@ -58,6 +58,10 @@ GET /api/objects
 ```text
 uni-devops/
 │
+├── docs/
+│
+├── informal documentation/
+│
 ├── lab1/
 │   ├── beetles_app/
 │   ├── .env.example
