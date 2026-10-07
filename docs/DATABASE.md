@@ -34,7 +34,7 @@
 
 
 
-`database/schema.sql`
+`docs/schema.sql`
 
 
 
