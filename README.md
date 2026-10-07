@@ -62,10 +62,27 @@ uni-devops/
 │   ├── beetles_app/
 │   ├── .env.example
 │   ├── .gitignore
+│   ├── static/
+│   │   ├── app.js
+│   │   └── style.css
+│   ├── templates/
+│   │   ├── auth.html
+│   │   └── index.html
 │   ├── README.md
 │   └── ...
 │  
 ├── lab2/
+│   ├── main.py
+│   ├── database.py
+│   ├── requirements.txt
+│   ├── .gitignore
+│   ├── static/
+│   │   ├── app.js
+│   │   └── style.css
+│   ├── templates/
+│   │   ├── auth.html
+│   │   └── index.html
+│   └── README.md
 │
 └── ...
 ```
