@@ -72,8 +72,7 @@ uni-devops/
 │   ├── templates/
 │   │   ├── auth.html
 │   │   └── index.html
-│   ├── README.md
-│   └── ...
+│   └── README.md
 │  
 ├── lab2/
 │   ├── main.py
@@ -88,9 +87,8 @@ uni-devops/
 │   │   └── index.html
 │   └── README.md
 │
-├── README.md
-│
-└── ...
+└── README.md
+
 ```
 
 ## Правила внесения изменений
