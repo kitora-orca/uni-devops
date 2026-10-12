@@ -1,0 +1,13 @@
+(PostgreSQL) 17.11
+Python 3.14.7
+fastapi==0.115.12
+uvicorn==0.34.0
+psycopg2-binary==2.9.10
+python-dotenv==1.0.1
+itsdangerous==2.2.0
+alembic==1.15.2
+pytest==8.3.5
+httpx==0.28.1
+pytest-cov==6.0.0
+ruff==0.11.2
+bandit==1.8.3
