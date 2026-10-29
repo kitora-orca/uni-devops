@@ -1,0 +1,173 @@
+[
+  {
+    "cell": null,
+    "code": "E402",
+    "end_location": {
+      "column": 31,
+      "row": 19
+    },
+    "filename": "C:\\Users\\Admin\\Desktop\\code\\beetles_app\\tests\\conftest.py",
+    "fix": null,
+    "location": {
+      "column": 1,
+      "row": 19
+    },
+    "message": "Module level import not at top of file",
+    "name": "module-import-not-at-top-of-file",
+    "noqa_row": 19,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/module-import-not-at-top-of-file"
+  },
+  {
+    "cell": null,
+    "code": "S105",
+    "end_location": {
+      "column": 31,
+      "row": 38
+    },
+    "filename": "C:\\Users\\Admin\\Desktop\\code\\beetles_app\\tests\\test_main.py",
+    "fix": null,
+    "location": {
+      "column": 16,
+      "row": 38
+    },
+    "message": "Possible hardcoded password assigned to: \"password\"",
+    "name": "hardcoded-password-string",
+    "noqa_row": 38,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/hardcoded-password-string"
+  },
+  {
+    "cell": null,
+    "code": "S105",
+    "end_location": {
+      "column": 31,
+      "row": 49
+    },
+    "filename": "C:\\Users\\Admin\\Desktop\\code\\beetles_app\\tests\\test_main.py",
+    "fix": null,
+    "location": {
+      "column": 16,
+      "row": 49
+    },
+    "message": "Possible hardcoded password assigned to: \"password\"",
+    "name": "hardcoded-password-string",
+    "noqa_row": 49,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/hardcoded-password-string"
+  },
+  {
+    "cell": null,
+    "code": "E402",
+    "end_location": {
+      "column": 42,
+      "row": 122
+    },
+    "filename": "C:\\Users\\Admin\\Desktop\\code\\beetles_app\\tests\\test_main.py",
+    "fix": null,
+    "location": {
+      "column": 1,
+      "row": 122
+    },
+    "message": "Module level import not at top of file",
+    "name": "module-import-not-at-top-of-file",
+    "noqa_row": 122,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/module-import-not-at-top-of-file"
+  },
+  {
+    "cell": null,
+    "code": "E402",
+    "end_location": {
+      "column": 21,
+      "row": 123
+    },
+    "filename": "C:\\Users\\Admin\\Desktop\\code\\beetles_app\\tests\\test_main.py",
+    "fix": null,
+    "location": {
+      "column": 1,
+      "row": 123
+    },
+    "message": "Module level import not at top of file",
+    "name": "module-import-not-at-top-of-file",
+    "noqa_row": 123,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/module-import-not-at-top-of-file"
+  },
+  {
+    "cell": null,
+    "code": "E402",
+    "end_location": {
+      "column": 12,
+      "row": 172
+    },
+    "filename": "C:\\Users\\Admin\\Desktop\\code\\beetles_app\\tests\\test_main.py",
+    "fix": null,
+    "location": {
+      "column": 1,
+      "row": 172
+    },
+    "message": "Module level import not at top of file",
+    "name": "module-import-not-at-top-of-file",
+    "noqa_row": 172,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/module-import-not-at-top-of-file"
+  },
+  {
+    "cell": null,
+    "code": "E402",
+    "end_location": {
+      "column": 31,
+      "row": 173
+    },
+    "filename": "C:\\Users\\Admin\\Desktop\\code\\beetles_app\\tests\\test_main.py",
+    "fix": null,
+    "location": {
+      "column": 1,
+      "row": 173
+    },
+    "message": "Module level import not at top of file",
+    "name": "module-import-not-at-top-of-file",
+    "noqa_row": 173,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/module-import-not-at-top-of-file"
+  },
+  {
+    "cell": null,
+    "code": "E402",
+    "end_location": {
+      "column": 36,
+      "row": 175
+    },
+    "filename": "C:\\Users\\Admin\\Desktop\\code\\beetles_app\\tests\\test_main.py",
+    "fix": null,
+    "location": {
+      "column": 1,
+      "row": 175
+    },
+    "message": "Module level import not at top of file",
+    "name": "module-import-not-at-top-of-file",
+    "noqa_row": 175,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/module-import-not-at-top-of-file"
+  },
+  {
+    "cell": null,
+    "code": "E501",
+    "end_location": {
+      "column": 91,
+      "row": 480
+    },
+    "filename": "C:\\Users\\Admin\\Desktop\\code\\beetles_app\\tests\\test_main.py",
+    "fix": null,
+    "location": {
+      "column": 89,
+      "row": 480
+    },
+    "message": "Line too long (90 > 88)",
+    "name": "line-too-long",
+    "noqa_row": 480,
+    "severity": "error",
+    "url": "https://docs.astral.sh/ruff/rules/line-too-long"
+  }
+]

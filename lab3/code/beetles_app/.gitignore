@@ -1,0 +1,6 @@
+# Environment variables / secrets
+PostgreSQL_Backups/
+beetles_db_schema/
+beetles_app/.env
+beetles_app/venv
+beetles_app/__pycache__
