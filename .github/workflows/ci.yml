@@ -1,0 +1,67 @@
+name: Docker CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  docker-tests:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: lab3/code/beetles_app
+
+    steps:
+      - name: Получить код
+        uses: actions/checkout@v4
+
+      - name: Проверить Docker Compose
+        run: docker compose version
+
+      - name: Создать тестовые настройки
+        run: |
+          cat > .env <<'ENV'
+          DB_HOST=db
+          DB_PORT=5432
+          DB_NAME=beetles_ci_db
+          DB_USER=postgres
+          DB_PASSWORD=123
+          SESSION_SECRET=ci-only-test-secret
+          ENV
+
+          cat > .env.test.docker <<'ENV'
+          DB_HOST=db
+          DB_PORT=5432
+          DB_NAME=beetles_test_db
+          DB_USER=postgres
+          DB_PASSWORD=123
+          SESSION_SECRET=ci-only-test-secret
+          ENV
+
+      - name: Собрать и запустить контейнеры
+        run: docker compose up -d --build --wait
+
+      - name: Создать тестовую базу данных
+        run: |
+          docker compose exec -T db psql -U postgres -d postgres \
+            -c "CREATE DATABASE beetles_test_db;"
+
+      - name: Создать таблицы тестовой базы
+        run: |
+          docker compose exec -T db psql -v ON_ERROR_STOP=1 \
+            -U postgres -d beetles_test_db < beetles_schema.sql
+
+      - name: Применить миграции Alembic
+        run: |
+          docker compose cp .env.test.docker app:/app/.env.test.docker
+          docker compose exec -T app python -m alembic -c alembic.docker.ini upgrade head
+
+      - name: Подготовить конфигурацию pytest
+        run: docker compose cp .env.test.docker app:/app/.env.test
+
+      - name: Проверить контейнеры
+        run: make container-check
+
+      - name: Запустить Python-тесты
+        run: docker compose exec -T app python -m pytest -v

@@ -4,3 +4,25 @@ beetles_db_schema/
 beetles_app/.env
 beetles_app/venv
 beetles_app/__pycache__
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Database backups
+backups/
+*.sql
+
+# Python temporary files
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.coverage
+.venv/
+venv/
+
+# Keep application database schema
+!beetles_schema.sql
+
+# Keep application database schema
+!beetles_schema.sql
