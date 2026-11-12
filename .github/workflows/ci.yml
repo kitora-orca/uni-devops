@@ -59,6 +59,53 @@ jobs:
         run: docker compose run --rm --no-deps app python -m bandit -r . -x ./tests,./docker_migrations,./alembic -ll
 
 
+  secrets-check:
+    name: 2a. Поиск секретов Gitleaks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Проверить историю Git
+        run: |
+          docker run --rm \
+            -v "$GITHUB_WORKSPACE:/repo" \
+            -w /repo \
+            ghcr.io/gitleaks/gitleaks:v8.24.3 \
+            git --redact --report-format json --report-path /repo/gitleaks-report.json
+      - name: Сохранить отчёт
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gitleaks-report
+          path: gitleaks-report.json
+          if-no-files-found: warn
+
+  dependencies-check:
+    name: 2b. Проверка зависимостей
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: lab3/code/beetles_app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+          cache-dependency-path: lab3/code/beetles_app/requirements.txt
+      - name: Установить pip-audit
+        run: python -m pip install pip-audit
+      - name: Проверить зависимости
+        run: python -m pip_audit -r requirements.txt --format json --output dependency-report.json
+      - name: Сохранить отчёт
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dependency-report
+          path: lab3/code/beetles_app/dependency-report.json
+          if-no-files-found: warn
+
   migrations-check:
     name: 3. Проверка миграций
     runs-on: ubuntu-latest
@@ -287,6 +334,8 @@ jobs:
     needs:
       - style-check
       - security-check
+      - secrets-check
+      - dependencies-check
       - migrations-check
       - backup-check
       - container-check
