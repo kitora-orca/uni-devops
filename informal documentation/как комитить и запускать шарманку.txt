@@ -37,3 +37,4 @@ python -m pip install itsdangerous
 для запуска сервера вставить в терминал uvicorn main:app --reload
 
 для входа в приложение открываем в браузере http://127.0.0.1:8000
+
