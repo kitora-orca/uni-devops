@@ -57,15 +57,17 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Создать тестовые настройки
+        env:
+          CI_DB_PASSWORD: ${{ secrets.CI_DB_PASSWORD }}
         run: |
-          cat > .env <<'ENV'
-          DB_HOST=db
-          DB_PORT=5432
-          DB_NAME=beetles_ci_db
-          DB_USER=postgres
-          DB_PASSWORD=123
-          SESSION_SECRET=ci-only-test-secret
-          ENV
+          {
+            echo "DB_HOST=db"
+            echo "DB_PORT=5432"
+            echo "DB_NAME=beetles_ci_db"
+            echo "DB_USER=postgres"
+            echo "DB_PASSWORD=$CI_DB_PASSWORD"
+            echo "SESSION_SECRET=ci-only-test-secret"
+          } > .env
 
       - name: Собрать Docker-образ
         run: docker compose build
@@ -144,24 +146,26 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Создать тестовые настройки
+        env:
+          CI_DB_PASSWORD: ${{ secrets.CI_DB_PASSWORD }}
         run: |
-          cat > .env <<'ENV'
-          DB_HOST=db
-          DB_PORT=5432
-          DB_NAME=beetles_ci_db
-          DB_USER=postgres
-          DB_PASSWORD=123
-          SESSION_SECRET=ci-only-test-secret
-          ENV
+          {
+            echo "DB_HOST=db"
+            echo "DB_PORT=5432"
+            echo "DB_NAME=beetles_ci_db"
+            echo "DB_USER=postgres"
+            echo "DB_PASSWORD=$CI_DB_PASSWORD"
+            echo "SESSION_SECRET=ci-only-test-secret"
+          } > .env
 
-          cat > .env.test.docker <<'ENV'
-          DB_HOST=db
-          DB_PORT=5432
-          DB_NAME=beetles_test_db
-          DB_USER=postgres
-          DB_PASSWORD=123
-          SESSION_SECRET=ci-only-test-secret
-          ENV
+          {
+            echo "DB_HOST=db"
+            echo "DB_PORT=5432"
+            echo "DB_NAME=beetles_test_db"
+            echo "DB_USER=postgres"
+            echo "DB_PASSWORD=$CI_DB_PASSWORD"
+            echo "SESSION_SECRET=ci-only-test-secret"
+          } > .env.test.docker
 
       - name: Запустить PostgreSQL и приложение
         run: docker compose up -d --build --wait
@@ -202,15 +206,17 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Создать тестовые настройки
+        env:
+          CI_DB_PASSWORD: ${{ secrets.CI_DB_PASSWORD }}
         run: |
-          cat > .env <<'ENV'
-          DB_HOST=db
-          DB_PORT=5432
-          DB_NAME=beetles_ci_db
-          DB_USER=postgres
-          DB_PASSWORD=123
-          SESSION_SECRET=ci-only-test-secret
-          ENV
+          {
+            echo "DB_HOST=db"
+            echo "DB_PORT=5432"
+            echo "DB_NAME=beetles_ci_db"
+            echo "DB_USER=postgres"
+            echo "DB_PASSWORD=$CI_DB_PASSWORD"
+            echo "SESSION_SECRET=ci-only-test-secret"
+          } > .env
 
       - name: Запустить PostgreSQL
         run: docker compose up -d --wait db
@@ -259,15 +265,17 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Создать тестовые настройки
+        env:
+          CI_DB_PASSWORD: ${{ secrets.CI_DB_PASSWORD }}
         run: |
-          cat > .env <<'ENV'
-          DB_HOST=db
-          DB_PORT=5432
-          DB_NAME=beetles_ci_db
-          DB_USER=postgres
-          DB_PASSWORD=123
-          SESSION_SECRET=ci-only-test-secret
-          ENV
+          {
+            echo "DB_HOST=db"
+            echo "DB_PORT=5432"
+            echo "DB_NAME=beetles_ci_db"
+            echo "DB_USER=postgres"
+            echo "DB_PASSWORD=$CI_DB_PASSWORD"
+            echo "SESSION_SECRET=ci-only-test-secret"
+          } > .env
 
       - name: Запустить контейнеры
         run: docker compose up -d --build --wait
@@ -290,24 +298,26 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Создать тестовые настройки
+        env:
+          CI_DB_PASSWORD: ${{ secrets.CI_DB_PASSWORD }}
         run: |
-          cat > .env <<'ENV'
-          DB_HOST=db
-          DB_PORT=5432
-          DB_NAME=beetles_ci_db
-          DB_USER=postgres
-          DB_PASSWORD=123
-          SESSION_SECRET=ci-only-test-secret
-          ENV
+          {
+            echo "DB_HOST=db"
+            echo "DB_PORT=5432"
+            echo "DB_NAME=beetles_ci_db"
+            echo "DB_USER=postgres"
+            echo "DB_PASSWORD=$CI_DB_PASSWORD"
+            echo "SESSION_SECRET=ci-only-test-secret"
+          } > .env
 
-          cat > .env.test.docker <<'ENV'
-          DB_HOST=db
-          DB_PORT=5432
-          DB_NAME=beetles_test_db
-          DB_USER=postgres
-          DB_PASSWORD=123
-          SESSION_SECRET=ci-only-test-secret
-          ENV
+          {
+            echo "DB_HOST=db"
+            echo "DB_PORT=5432"
+            echo "DB_NAME=beetles_test_db"
+            echo "DB_USER=postgres"
+            echo "DB_PASSWORD=$CI_DB_PASSWORD"
+            echo "SESSION_SECRET=ci-only-test-secret"
+          } > .env.test.docker
 
       - name: Запустить контейнеры
         run: docker compose up -d --build --wait
