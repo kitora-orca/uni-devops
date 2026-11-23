@@ -126,36 +126,25 @@ GitHub Actions автоматически устанавливает закре�
 ```text
 uni-devops/
 │
+├── .github
+│
+├── .gitleaksignore
+│
+├── .gitignore
+│
 ├── docs/
 │
 ├── informal documentation/
 │
 ├── lab1/
-│   ├── beetles_app/
-│   ├── .env.example
-│   ├── .gitignore
-│   ├── static/
-│   │   ├── app.js
-│   │   └── style.css
-│   ├── templates/
-│   │   ├── auth.html
-│   │   └── index.html
-│   └── README.md
 │  
 ├── lab2/
-│   ├── main.py
-│   ├── database.py
-│   ├── requirements.txt
-│   ├── .gitignore
-│   ├── static/
-│   │   ├── app.js
-│   │   └── style.css
-│   ├── templates/
-│   │   ├── auth.html
-│   │   └── index.html
-│   └── README.md
 │
 ├── lab3/
+│
+├── lab4/
+│
+├── lab5/
 │
 └── README.md
 
