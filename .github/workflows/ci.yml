@@ -283,6 +283,15 @@ jobs:
       - name: Проверить контейнеры
         run: make container-check
 
+      - name: Проверить Docker-образ на уязвимости Trivy
+        uses: aquasecurity/trivy-action@0.33.1
+        with:
+          image-ref: beetles-app:1.0
+          format: table
+          exit-code: '1'
+          severity: HIGH,CRITICAL
+          ignore-unfixed: true
+
       - name: Остановить контейнеры
         if: always()
         run: docker compose down -v
