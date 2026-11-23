@@ -284,7 +284,7 @@ jobs:
         run: make container-check
 
       - name: Проверить Docker-образ на уязвимости Trivy
-        uses: aquasecurity/trivy-action@0.33.1
+        uses: aquasecurity/trivy-action@0.35.0
         with:
           image-ref: beetles-app:1.0
           format: table
