@@ -1,2 +1,9 @@
-# Владелец всех файлов репозитория через которого проходят согласования на изменения
+# Владелец всех файлов репозитория
 * @kitora-orca
+
+# Критические файлы приемки
+/lab3/code/beetles_app/tests/ @kitora-orca
+/lab3/code/beetles_app/Makefile @kitora-orca
+/lab3/code/beetles_app/ruff.toml @kitora-orca
+/.github/workflows/ @kitora-orca
+/.github/CODEOWNERS @kitora-orca
