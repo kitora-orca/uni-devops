@@ -5,6 +5,11 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 WORKDIR /app
 
+# Устанавливаем доступные обновления безопасности Debian
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    rm -rf /var/lib/apt/lists/*
+
 RUN groupadd --system appuser && \
     useradd --system --gid appuser --home-dir /app appuser
 
