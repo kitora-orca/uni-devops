@@ -5,12 +5,19 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 WORKDIR /app
 
+# Устанавливаем доступные обновления безопасности Debian
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    rm -rf /var/lib/apt/lists/*
+
 RUN groupadd --system appuser && \
     useradd --system --gid appuser --home-dir /app appuser
 
 COPY requirements.txt .
 
-RUN pip install --no-cache-dir -r requirements.txt
+RUN python -m pip install --no-cache-dir --upgrade pip==26.3 && \
+    python -m pip install --no-cache-dir -r requirements.txt && \
+    python -m pip uninstall -y pip
 
 COPY --chown=appuser:appuser . .
 
