@@ -1,0 +1,47 @@
+services:
+  db:
+    image: postgres:17.11
+    restart: unless-stopped
+    mem_limit: 1g
+    cpus: 2.0
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - backend
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U \"$${POSTGRES_USER}\" -d \"$${POSTGRES_DB}\""]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 10s
+
+  app:
+    image: beetles-app:1.0
+    build: .
+    restart: unless-stopped
+    mem_limit: 512m
+    cpus: 1.0
+    env_file:
+      - .env
+    environment:
+      DB_HOST: db
+      APP_ENV: production
+    ports:
+      - "8000:8000"
+    networks:
+      - backend
+    depends_on:
+      db:
+        condition: service_healthy
+    stop_grace_period: 30s
+
+networks:
+  backend:
+    driver: bridge
+
+volumes:
+  postgres_data:

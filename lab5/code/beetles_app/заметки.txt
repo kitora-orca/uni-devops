@@ -1,0 +1,54 @@
+Подготовить команды или скрипты, позволяющие повторить основные шаги развертывания.
+
+закинуть все в реп.
+
+поиск процесса, порта и журналов средствами Linux;
+
+установить все зависимости
+python -m pip install fastapi uvicorn psycopg2-binary python-dotenv itsdangerous httpx pytest pytest-cov alembic sqlalchemy ruff bandit
+
+ПРОВЕРКА ЗАВИСИМОСТЕЙ
+python -m pip check
+
+ТЕСТЫ запуск автоматических тестов из папки test/test_main.py (тесты функционала)
+python -m pytest --cov=main --cov-report=term-missing -v
+
+*Создана отдельная база beetles_test_db.
+*В тестовую базу перенесена структура шести таблиц без данных основной базы.
+*tests/conftest.py загружает .env.test и проверяет имя базы в конфигурации database.py.
+*приложение настроено на тестовую базу при запуске pytest
+ТЕСТЫ ПРОВЕРКА ПОКРЫТИЯ функционала приложения моими тестами
+python -m pytest --cov=main --cov-report=term-missing
+
+
+
+START
+uvicorn main:app --reload
+
+ЗАЙТИ В ОКРУЖЕНИЕ
+.\.venv\Scripts\Activate.ps1
+
+ РЕЗЕРВНОЕ КОПИРОВАНИЕ
+ запустить копирование
+ .\scripts\backup.ps1
+
+ второй способ запустить копирование это .\Makefile.ps1 backup тогда работает все типо в одном файле
+ 
+ посмотреть созданные резервные копии
+ Get-ChildItem .\backups
+
+ РЕЗЕРВНОЕ ВОССТАНОВЛЕНИЕ
+ запустить восстановление
+ Get-ChildItem .\restore
+
+второй способ запустить восстановление это .\Makefile.ps1 restore тогда работает все типо в одном файле
+
+uvicorn main:app --reload 
+
+
+SQL SQL SQL
+\l все дб
+\c конект к дб 
+\d отобразить все таблицы
+\d имятаблицы - отобразить все таблицы
+ 
